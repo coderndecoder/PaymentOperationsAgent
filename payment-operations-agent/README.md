@@ -10,32 +10,41 @@ policy documents, and four deterministic tools — no web UI, no external databa
 
 ```mermaid
 flowchart TD
-    A[User CLI Input] --> B[LangGraph Graph]
-    B --> C[rag_node]
-    C --> D[llm_node]
+    USER(["🧑 User\nCLI Input"])
+    FINAL(["💬 Final Answer\nprinted to CLI"])
 
-    D -->|Tool call requested| E[tool_node]
-    D -->|No tool calls| F[Final Answer CLI]
+    USER --> rag_node
 
-    E --> D
+    subgraph GRAPH ["⚙️  LangGraph State Graph"]
+        direction TB
+        rag_node["🔍 rag_node\nRetrieves relevant policy chunks\nand stores in policy_context"]
+        llm_node["🤖 llm_node\nCalls LLM with tools bound\nPolicy context injected as system msg"]
+        tool_node["🔧 tool_node\nExecutes the tool call\nreturned by the LLM"]
 
-    E --> T1
-    E --> T2
-    E --> T3
-    E --> T4
+        rag_node -->|"policy_context populated"| llm_node
+        llm_node -->|"tool_calls present"| tool_node
+        tool_node -->|"ToolMessage result"| llm_node
+    end
 
-    C --> P1
-    C --> P2
-    C --> P3
+    llm_node -->|"no tool_calls → END"| FINAL
 
-    T1[get_payment]
-    T2[get_customer]
-    T3[search_support_cases]
-    T4[check_refund_eligibility]
+    subgraph TOOLS ["🛠️  Available Tools  (deterministic Python)"]
+        direction LR
+        T1["get_payment\npayment_id → payments.json"]
+        T2["get_customer\ncustomer_id → customers.json"]
+        T3["search_support_cases\nquery → support_cases.json"]
+        T4["⚠️ check_refund_eligibility\nApplies hard business rules:\n30-day window · status check · subscription block"]
+    end
 
-    P1[refund_policy.md]
-    P2[chargeback_policy.md]
-    P3[payment_failure_policy.md]
+    subgraph RAG ["📚  RAG  —  FAISS In-Memory Vector Store"]
+        direction LR
+        P1["refund_policy.md"]
+        P2["chargeback_policy.md"]
+        P3["payment_failure_policy.md"]
+    end
+
+    tool_node <-->|"calls / returns result"| TOOLS
+    rag_node <-->|"similarity_search query / top-K chunks"| RAG
 ```
 
 **Flow summary:**
