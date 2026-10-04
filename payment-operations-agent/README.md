@@ -10,31 +10,32 @@ policy documents, and four deterministic tools — no web UI, no external databa
 
 ```mermaid
 flowchart TD
-    A([User CLI Input]) --> B[LangGraph Graph]
+    A[User CLI Input] --> B[LangGraph Graph]
+    B --> C[rag_node]
+    C --> D[llm_node]
 
-    B --> C[rag_node\nRetrieves relevant policy chunks\nfrom FAISS vector store]
-    C --> D[llm_node\nCalls LLM with tools bound\nPolicy context injected as system msg]
-
-    D -->|Tool call requested| E[tool_node\nAuto-executes tool calls]
-    D -->|No tool calls| F([Final Answer - CLI])
+    D -->|Tool call requested| E[tool_node]
+    D -->|No tool calls| F[Final Answer CLI]
 
     E --> D
 
-    subgraph Tools
-        T1[get_payment]
-        T2[get_customer]
-        T3[search_support_cases]
-        T4[check_refund_eligibility\n- Deterministic Python rules -]
-    end
+    E --> T1
+    E --> T2
+    E --> T3
+    E --> T4
 
-    subgraph RAG Vector Store - FAISS in-memory
-        P1[refund_policy.md]
-        P2[chargeback_policy.md]
-        P3[payment_failure_policy.md]
-    end
+    C --> P1
+    C --> P2
+    C --> P3
 
-    E --> Tools
-    C --> RAG Vector Store - FAISS in-memory
+    T1[get_payment]
+    T2[get_customer]
+    T3[search_support_cases]
+    T4[check_refund_eligibility]
+
+    P1[refund_policy.md]
+    P2[chargeback_policy.md]
+    P3[payment_failure_policy.md]
 ```
 
 **Flow summary:**
