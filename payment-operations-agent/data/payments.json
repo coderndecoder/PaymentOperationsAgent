@@ -1,0 +1,102 @@
+[
+  {
+    "id": "PAY-001",
+    "customer_id": "CUST-001",
+    "amount": 120.00,
+    "currency": "USD",
+    "status": "completed",
+    "method": "credit_card",
+    "date": "2026-09-20",
+    "description": "Subscription - Pro Plan"
+  },
+  {
+    "id": "PAY-002",
+    "customer_id": "CUST-001",
+    "amount": 45.99,
+    "currency": "USD",
+    "status": "refunded",
+    "method": "credit_card",
+    "date": "2026-08-10",
+    "description": "One-time purchase - Plugin Pack"
+  },
+  {
+    "id": "PAY-003",
+    "customer_id": "CUST-002",
+    "amount": 200.00,
+    "currency": "USD",
+    "status": "failed",
+    "method": "bank_transfer",
+    "date": "2026-09-28",
+    "description": "Annual Subscription"
+  },
+  {
+    "id": "PAY-004",
+    "customer_id": "CUST-002",
+    "amount": 30.00,
+    "currency": "USD",
+    "status": "completed",
+    "method": "paypal",
+    "date": "2026-07-01",
+    "description": "Add-on Purchase"
+  },
+  {
+    "id": "PAY-005",
+    "customer_id": "CUST-003",
+    "amount": 500.00,
+    "currency": "USD",
+    "status": "completed",
+    "method": "credit_card",
+    "date": "2026-09-25",
+    "description": "Enterprise Module"
+  },
+  {
+    "id": "PAY-006",
+    "customer_id": "CUST-003",
+    "amount": 75.00,
+    "currency": "USD",
+    "status": "pending",
+    "method": "bank_transfer",
+    "date": "2026-10-01",
+    "description": "Support Package"
+  },
+  {
+    "id": "PAY-007",
+    "customer_id": "CUST-004",
+    "amount": 19.99,
+    "currency": "USD",
+    "status": "completed",
+    "method": "credit_card",
+    "date": "2026-06-15",
+    "description": "Monthly Subscription"
+  },
+  {
+    "id": "PAY-008",
+    "customer_id": "CUST-004",
+    "amount": 19.99,
+    "currency": "USD",
+    "status": "failed",
+    "method": "credit_card",
+    "date": "2026-09-30",
+    "description": "Monthly Subscription - Renewal"
+  },
+  {
+    "id": "PAY-009",
+    "customer_id": "CUST-005",
+    "amount": 999.00,
+    "currency": "USD",
+    "status": "completed",
+    "method": "bank_transfer",
+    "date": "2026-09-10",
+    "description": "Annual Enterprise License"
+  },
+  {
+    "id": "PAY-010",
+    "customer_id": "CUST-005",
+    "amount": 150.00,
+    "currency": "USD",
+    "status": "completed",
+    "method": "credit_card",
+    "date": "2026-04-01",
+    "description": "Training Session"
+  }
+]

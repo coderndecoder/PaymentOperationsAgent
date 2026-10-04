@@ -1,0 +1,56 @@
+[
+  {
+    "id": "CASE-001",
+    "customer_id": "CUST-001",
+    "payment_id": "PAY-002",
+    "issue": "Customer requested refund for plugin pack purchase. Item did not work as advertised.",
+    "status": "resolved",
+    "resolution": "Refund approved and processed.",
+    "created_at": "2026-08-11"
+  },
+  {
+    "id": "CASE-002",
+    "customer_id": "CUST-002",
+    "payment_id": "PAY-003",
+    "issue": "Annual subscription payment failed via bank transfer. Customer reports funds were debited but payment not confirmed.",
+    "status": "open",
+    "resolution": null,
+    "created_at": "2026-09-29"
+  },
+  {
+    "id": "CASE-003",
+    "customer_id": "CUST-003",
+    "payment_id": "PAY-005",
+    "issue": "Customer wants to dispute charge for enterprise module, claims they did not authorize it.",
+    "status": "open",
+    "resolution": null,
+    "created_at": "2026-09-26"
+  },
+  {
+    "id": "CASE-004",
+    "customer_id": "CUST-003",
+    "payment_id": "PAY-006",
+    "issue": "Payment for support package is still showing as pending after 2 days.",
+    "status": "in_progress",
+    "resolution": null,
+    "created_at": "2026-10-02"
+  },
+  {
+    "id": "CASE-005",
+    "customer_id": "CUST-004",
+    "payment_id": "PAY-008",
+    "issue": "Monthly subscription renewal failed. Customer card was declined.",
+    "status": "open",
+    "resolution": null,
+    "created_at": "2026-09-30"
+  },
+  {
+    "id": "CASE-006",
+    "customer_id": "CUST-005",
+    "payment_id": "PAY-010",
+    "issue": "Customer is requesting a refund for training session — says the session was cancelled by the provider.",
+    "status": "open",
+    "resolution": null,
+    "created_at": "2026-10-01"
+  }
+]
